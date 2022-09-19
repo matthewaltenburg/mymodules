@@ -47,7 +47,7 @@ def mean_std(data_file_path):
 def help_print(imput=None):
     
     if imput is None:
-        print("Outline\n\
+        print("'outline' = outline of a Pytorch workflow\n\
 'hyper' = hyperparam_help,\n\
 'trans' = transform,\n\
 'device' = cuda or cpu,\n\
@@ -64,4 +64,10 @@ def help_print(imput=None):
 
     if imput == "device":
         print("device = 'cuda' if torch.cuda.is_available() else 'cpu'")
+        
+    if imput == "outline":
+        print("Variables and Hyperparameters \n\
+    Set Device \n\
+    hyper")
+        
 
