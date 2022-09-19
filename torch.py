@@ -43,26 +43,29 @@ def mean_std(data_file_path):
     
     return mean, std
 
-
 def help_print(imput=None):
     
     if imput is None:
-        print("'outline' = outline of a Pytorch workflow\n\
-'hyper' = hyperparam_help,\n\
-'trans' = transform,\n\
-'device' = cuda or cpu,\n\
-    ")
-    
-    if imput == "hyper":
+        print("""\nPytorch Outline\n\n1. Inputs\n2. Variables and Hyperparameters = 'hyper', 'device'\n3. Data Prep\n    Transforming and augmenting images = 'trans'\n    Normalization = mean_std()\n4. Getting Data\n    datasets = 'sets'\n    dataloader = 'loader'\n5. Model\n""")
+        
+    elif imput == "hyper":
         print("""\nhyper = {\n    'learning_rate': .0001, \n    'weight_decay': 0.0, \n    'epochs': 1, \n    'batch_size': 128,\n    'num_workers': 4, \n    }\n""")
 
-
-    if imput == "device":
+    elif imput == "device":
         print("device = 'cuda' if torch.cuda.is_available() else 'cpu'")
+    
+    elif imput == "trans":
+        print("""\ntransformer = transforms.Compose([\n    transforms.Resize(256),\n    transforms.CenterCrop(224),\n    transforms.ToTensor(),\n    transforms.Normalize(mean, std)\n])\n""")
         
-    if imput == "outline":
-        print("Variables and Hyperparameters \n\
-    Set Device \n\
-    hyper")
-        
+    elif imput == "loader":
+        print("""\ntraining_dataloader = DataLoader(\n    training_dataset,\n    batch_size=hyper['batch_size'],\n    num_workers=hyper['num_workers'],\n    shuffle=True\n)\nValidataion_dataloader = DataLoader(\n    training_dataset,\n    batch_size=hyper['batch_size'],\n    num_workers=hyper['num_workers'],\n    shuffle=False\n)\n""")
+    
+    elif imput == "set":
+        print("""\ntraining_dataset = datasets.ImageFolder('cat-dog-panda/training', transform=transformer)\nvalidation_dataset = datasets.ImageFolder('cat-dog-panda/validation', transform=transformer)\n""")
+    # elif imput == "":
+    # elif imput == "":
+    # elif imput == "":
+    # elif imput == "":
+    else:
+        print("Not an option")
 
