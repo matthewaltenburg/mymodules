@@ -47,14 +47,14 @@ def imshow_grid(training_dataloader):
     import torchvision
     import matplotlib.pyplot as plt
     import numpy as np
-    img, labels = iter(training_dataloader).next()
-    img = torchvision.utils.make_grid(img)
+    images, labels = iter(training_dataloader).next()
+    img = torchvision.utils.make_grid(images)
     img = img / 2 + 0.5     # unnormalize
     npimg = img.numpy()
     print(', '.join(f'{training_dataloader.dataset.classes[labels[j]]}' for j in range(training_dataloader.batch_size)))
     plt.imshow(np.transpose(npimg, (1, 2, 0)))
     plt.show()
-    return labels
+    return images, labels
 
 
 def help_print(imput=None):
