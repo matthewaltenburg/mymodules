@@ -43,13 +43,15 @@ def mean_std(data_file_path):
     
     return mean, std
 
-def grid_show(training_dataloader):
+def imshow(training_dataloader):
     img, labels = iter(training_dataloader).next()
     img = torchvision.utils.make_grid(img)
     img = img / 2 + 0.5     # unnormalize
     npimg = img.numpy()
+    print(', '.join(f'{classes[labels[j]]}' for j in range(training_dataloader.batch_size)))
     plt.imshow(np.transpose(npimg, (1, 2, 0)))
     plt.show()
+    return labels
 
 
 def help_print(imput=None):
