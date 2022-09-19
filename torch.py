@@ -43,7 +43,7 @@ def mean_std(data_file_path):
     
     return mean, std
 
-def imshow(training_dataloader):
+def imshow_grid(training_dataloader):
     img, labels = iter(training_dataloader).next()
     img = torchvision.utils.make_grid(img)
     img = img / 2 + 0.5     # unnormalize
