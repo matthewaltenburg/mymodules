@@ -45,6 +45,7 @@ def mean_std(data_file_path):
 
 def imshow_grid(training_dataloader):
     import torchvision
+    import matplotlib.pyplot as plt
     img, labels = iter(training_dataloader).next()
     img = torchvision.utils.make_grid(img)
     img = img / 2 + 0.5     # unnormalize
