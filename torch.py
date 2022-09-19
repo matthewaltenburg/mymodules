@@ -49,7 +49,7 @@ def imshow_grid(training_dataloader):
     img = torchvision.utils.make_grid(img)
     img = img / 2 + 0.5     # unnormalize
     npimg = img.numpy()
-    print(', '.join(f'{classes[labels[j]]}' for j in range(training_dataloader.batch_size)))
+    print(', '.join(f'{training_dataloader.dataset.classes[labels[j]]}' for j in range(training_dataloader.batch_size)))
     plt.imshow(np.transpose(npimg, (1, 2, 0)))
     plt.show()
     return labels
