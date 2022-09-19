@@ -58,6 +58,7 @@ def imshow_grid(training_dataloader):
 
 
 def help_print(imput=None):
+    """ one line print website https://jagt.github.io/python-single-line-convert/ """
     
     if imput is None:
         print("""\nPytorch Outline\n\n1. Inputs\n2. Variables and Hyperparameters = 'hyper', 'device'\n3. Data Prep\n    Transforming and augmenting images = 'trans'\n    Normalization = mean_std()\n4. Getting Data\n    datasets = 'sets'\n    dataloader = 'loader'\n5. Model\n""")
