@@ -54,13 +54,8 @@ def help_print(imput=None):
     ")
     
     if imput == "hyper":
-        print("hyper = {\n\
-    'learning_rate': .0001, \n\
-    'weight_decay': 0.0, \n\
-    'epochs': 1, \n\
-    'batch_size': 128,\n\
-    'num_workers': 4, \n\
-    }")
+        print("""\nhyper = {\n    'learning_rate': .0001, \n    'weight_decay': 0.0, \n    'epochs': 1, \n    'batch_size': 128,\n    'num_workers': 4, \n    }\n""")
+
 
     if imput == "device":
         print("device = 'cuda' if torch.cuda.is_available() else 'cpu'")
