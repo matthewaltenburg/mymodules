@@ -61,7 +61,7 @@ def help_print(imput=None):
     """ one line print website https://jagt.github.io/python-single-line-convert/ """
     
     if imput is None:
-        print("""\nPytorch Outline\n\n1. Inputs\n2. Variables and Hyperparameters = 'hyper', 'device'\n3. Data Prep\n    Transforming and augmenting images = 'trans'\n    Normalization = mean_std()\n4. Getting Data\n    datasets = 'sets'\n    dataloader = 'loader'\n5. Model\n""")
+        print("""\nPytorch Outline\n\n1. Inputs\n2. Variables and Hyperparameters = 'hyper', 'device'\n3. Data Prep\n    Transforming and augmenting images = 'trans'\n    Normalization = mean_std()\n4. Getting Data\n    datasets = 'sets'\n    dataloader = 'loader'\n5. Model\n    training and validation loop = 'loop'\n5. Model\n""")
         
     elif imput == "hyper":
         print("""\nhyper = {\n    'learning_rate': .0001, \n    'weight_decay': 0.0, \n    'epochs': 1, \n    'batch_size': 128,\n    'num_workers': 4, \n    }\n""")
@@ -77,7 +77,10 @@ def help_print(imput=None):
     
     elif imput == "set":
         print("""\ntraining_dataset = datasets.ImageFolder('cat-dog-panda/training', transform=transformer)\nvalidation_dataset = datasets.ImageFolder('cat-dog-panda/validation', transform=transformer)\n""")
-    # elif imput == "":
+    
+    elif imput == "loop":
+        ("""\nnum_epochs = 100\n\n# model for training or validation\nmodel.train()\n# model.eval.()\n\nfor epoch in range(num_epochs):\n    for X, Y in data:\n        \n        # send data to cuda\n        X.to(device)\n        Y.to(device)\n        \n        # 1. clear gradients\n        model.zero_grad()\n\n        # 2. forward pass\n        y_pred = model(X)\n\n        # 3. compute loss\n        loss = loss_function(y_pred, Y)\n\n        # 4. compute gradients\n        loss.backward()\n\n        # 5. adjust learnable parameters\n        optimizer.step()\n""")
+    
     # elif imput == "":
     # elif imput == "":
     # elif imput == "":
