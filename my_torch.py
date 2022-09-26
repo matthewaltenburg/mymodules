@@ -101,7 +101,8 @@ def help_print(imput=None):
     elif imput == "set":
         print("""\ntraining_dataset = datasets.ImageFolder('cat-dog-panda/training', transform=transformer)\nvalidation_dataset = datasets.ImageFolder('cat-dog-panda/validation', transform=transformer)\n""")
     
-    # elif imput == "":
+    elif imput == "model":
+        print("""\nclass CNN(torch.nn.Module):\n    def __init__(self):\n        super().__init__()\n        self.model = torch.nn.Sequential(\n             #Input = 3 x 224 x 224, Output =  x 224 x 224\n            torch.nn.Conv2d(in_channels = 3, out_channels = 64, kernel_size = 3, padding = 1), \n            torch.nn.ReLU(),\n            #Input = 64 x 224 x 224, Output = 64 x 112 x 112\n            torch.nn.MaxPool2d(kernel_size=2),\n            \n            torch.nn.Flatten(),\n            torch.nn.Linear(64*112*112, 512),\n            torch.nn.ReLU(),\n            torch.nn.Linear(512, 3)\n        )\n  \n    def forward(self, x):\n        return self.model(x)\n    \nmodel = CNN().to(device)\n""")
     # elif imput == "":
     # elif imput == "":
     else:
