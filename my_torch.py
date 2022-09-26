@@ -1,3 +1,20 @@
+def data_balance(dataloader):
+    """prints bar graph of all classes"""
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    classes = []
+    for batch_idx, data in enumerate(dataloader, 0):
+        x, y = data 
+        classes.extend(y.tolist())
+
+    #Calculating the unique classes and the respective counts and plotting them
+    unique, counts = np.unique(classes, return_counts=True)
+    names = list(dataloader.dataset.class_to_idx.keys())
+    plt.bar(names, counts)
+    plt.xlabel("Target Classes")
+    plt.ylabel("Number of training instances")
+
 def mean_std(data_file_path):
     """Returns the mean and standard deviation of the training data"""
     import torch
